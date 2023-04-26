@@ -1,0 +1,54 @@
+body {
+    background-color: #f2f2f2;
+  }
+  
+  .pokedex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+  }
+  
+  #inputPokeName {
+    padding: 5px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+  
+  button {
+    padding: 5px 10px;
+    font-size: 16px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .pokeinfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    font-weight: bold;
+    font-size: 1.2em;
+  }
+  
+  #pokeTable {
+    margin-right: 50px;
+    border-collapse: collapse;
+  }
+  
+  #pokeTable th {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: left;
+    padding: 10px;
+    background-color: red;
+    color: white;
+    border: 1px solid
+  }
