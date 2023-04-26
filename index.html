@@ -8,6 +8,9 @@
       <title>Pokedex Adrián</title>
   </head>
   <body>
+    <div class="imgPokedex">
+      <img  src="logo.png">
+    </div>
     <div class="pokedex">
       <input id="inputPokeName" type="text"></input>
       <button onclick="buscar()">Buscar</button>
@@ -37,19 +40,24 @@
           xhr.open('GET', url);
           xhr.onload = function() {
             if (xhr.readyState === 4 && xhr.status === 200) {
-                const response = JSON.parse(xhr.responseText);
-                const tableBody = document.querySelector('#pokeTable tbody');
-                const imgElement = document.createElement("img");
-                const row = tableBody.insertRow();
-                const nameCell = row.insertCell();
-                const heightCell = row.insertCell();
-                const weightCell = row.insertCell();
-                const imagen = row.insertCell();
-                nameCell.innerHTML = response.name;
-                heightCell.innerHTML = response.height;
-                weightCell.innerHTML = response.weight;
-                imgElement.src = response.sprites.front_default;
-                imagen.appendChild(imgElement);
+              const response = JSON.parse(xhr.responseText);
+              const tableBody = document.querySelector('#pokeTable tbody');
+              const imgElement = document.createElement("img");
+              const row = tableBody.insertRow();
+              const nameCell = row.insertCell();
+              const heightCell = row.insertCell();
+              const weightCell = row.insertCell();
+              const imagen = row.insertCell();
+              nameCell.innerHTML = response.name;
+              heightCell.innerHTML = response.height;
+              weightCell.innerHTML = response.weight;
+              imgElement.src = response.sprites.front_default;
+              imagen.appendChild(imgElement);
+              nameCell.style.textAlign = "center";
+              heightCell.style.textAlign = "center";
+              weightCell.style.textAlign = "center";
+              imagen.style.display = "flex";
+              imagen.style.justifyContent = "center";
             } 
             else {
               console.log('Error al obtener los datos.');
