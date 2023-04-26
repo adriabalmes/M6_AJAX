@@ -5,7 +5,7 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="stylesheet" href="style.css">
-      <title>Document</title>
+      <title>Pokedex Adrián</title>
   </head>
   <body>
     <div class="pokedex">
@@ -18,12 +18,12 @@
               <th>Name</th>
               <th>Height</th>
               <th>Weight</th>
+              <th>PokePic</th>
             </tr>
           </thead>
           <tbody>
           </tbody>
         </table>
-        <img id="pokeImg" src="" alt="">
       </div>
     </div>
         
@@ -37,29 +37,26 @@
           xhr.open('GET', url);
           xhr.onload = function() {
             if (xhr.readyState === 4 && xhr.status === 200) {
-              const response = JSON.parse(xhr.responseText);
-              const tableBody = document.querySelector('#pokeTable tbody');
-              const row = tableBody.insertRow();
-              const nameCell = row.insertCell();
-              const heightCell = row.insertCell();
-              const weightCell = row.insertCell();
-              const spritesCell = row.insertCell();
-              nameCell.innerHTML = response.name;
-              heightCell.innerHTML = response.height;
-              weightCell.innerHTML = response.weight;
-              
-              const imagen = row.insertCell();
-              const imgElement = document.createElement("img");
-              imgElement.src = response.sprites.front_default;
-              imagen.appendChild(imgElement);
-              
-            } else {
+                const response = JSON.parse(xhr.responseText);
+                const tableBody = document.querySelector('#pokeTable tbody');
+                const imgElement = document.createElement("img");
+                const row = tableBody.insertRow();
+                const nameCell = row.insertCell();
+                const heightCell = row.insertCell();
+                const weightCell = row.insertCell();
+                const imagen = row.insertCell();
+                nameCell.innerHTML = response.name;
+                heightCell.innerHTML = response.height;
+                weightCell.innerHTML = response.weight;
+                imgElement.src = response.sprites.front_default;
+                imagen.appendChild(imgElement);
+            } 
+            else {
               console.log('Error al obtener los datos.');
             }
-
           }
-          xhr.send();
-        }
-      </script>
+        xhr.send();
+      }
+    </script>
   </body>
 </html>
